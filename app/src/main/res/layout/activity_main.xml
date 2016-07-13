@@ -12,5 +12,40 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name"
+        android:id="@+id/textView"
+        android:layout_above="@+id/editUserNameBox"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/userNameEditBox"
+        android:id="@+id/editUserNameBox"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/passWordEditBox"
+        android:inputType="textPassword"
+        android:id="@+id/editPasswordBox"
+        android:layout_below="@+id/editUserNameBox"
+        android:layout_alignRight="@+id/editUserNameBox"
+        android:layout_alignEnd="@+id/editUserNameBox"
+        android:layout_marginTop="28dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loginBox"
+        android:id="@+id/button"
+        android:layout_below="@+id/editPasswordBox"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp" />
+
+
 </RelativeLayout>

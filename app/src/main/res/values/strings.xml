@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Manado</string>
+    <string name="userNameEditBox">User Name</string>
+    <string name="passWordEditBox">Password</string>
+    <string name="loginBox">Log In</string>
 </resources>
