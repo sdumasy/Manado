@@ -22,22 +22,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //        ManadoApiClient.setup();
         Log.v("dadada", "develop");
-//        UserController.getUserData(new Callback<UserData>() {
-//            @Override
-//            public void onResponse(Call<UserData> call, Response<UserData> response) {
-//                if (response.isSuccessful()) {
-//                    User user = response.body().getData().get(0);
-//                    Log.v("dddddddd", user.getName());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<UserData> call, Throwable t) {
-//                Log.d("Error", t.getMessage());
-//                Log.v("aaaaaa", "qqq");
-////                Snackbar snackbar = Snackbar
-////                        .make(getActivity().findViewById(R.id.main_content), getActivity().getString(R.string.error), Snackbar.LENGTH_LONG);
-//            }
-//        });
+        UserController.getUserData(new Callback<UserData>() {
+            @Override
+            public void onResponse(Call<UserData> call, Response<UserData> response) {
+                if (response.isSuccessful()) {
+                    User user = response.body().getData().get(0);
+                    Log.v("dddddddd", user.getName());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserData> call, Throwable t) {
+                Log.d("Error", t.getMessage());
+                Log.v("aaaaaa", "qqq");
+//                Snackbar snackbar = Snackbar
+//                        .make(getActivity().findViewById(R.id.main_content), getActivity().getString(R.string.error), Snackbar.LENGTH_LONG);
+            }
+        });
     }
 }
