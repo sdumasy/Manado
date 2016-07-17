@@ -1,13 +1,9 @@
 package com.manado.http;
 
-import com.manado.model.User;
-import com.manado.model.UserData;
+import com.manado.model.user.UserData;
 
 import retrofit2.Call;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 
 /**
  * Created by macbookpro on 13-07-16.

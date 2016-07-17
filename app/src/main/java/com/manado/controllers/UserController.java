@@ -4,8 +4,7 @@ import android.util.Log;
 
 import com.manado.http.ManadoApiClient;
 import com.manado.http.UserDataService;
-import com.manado.model.User;
-import com.manado.model.UserData;
+import com.manado.model.user.UserData;
 
 import retrofit2.Call;
 import retrofit2.Callback;

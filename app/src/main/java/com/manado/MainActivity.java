@@ -2,13 +2,12 @@ package com.manado;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 
 import com.manado.controllers.UserController;
 import com.manado.http.ManadoApiClient;
-import com.manado.model.User;
-import com.manado.model.UserData;
+import com.manado.model.user.User;
+import com.manado.model.user.UserData;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        ManadoApiClient.setup();
-        Log.v("dadada", "develop");
+        ManadoApiClient.setup();
+
         UserController.getUserData(new Callback<UserData>() {
             @Override
             public void onResponse(Call<UserData> call, Response<UserData> response) {
                 if (response.isSuccessful()) {
-                    User user = response.body().getData().get(0);
-                    Log.v("dddddddd", user.getName());
+                    String mail = response.body().getData().get(0).getAttributes().getEmail();
+                    Log.v("dddddddd", mail);
                 }
             }
 

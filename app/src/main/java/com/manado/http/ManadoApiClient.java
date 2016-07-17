@@ -13,6 +13,7 @@ public class ManadoApiClient {
     public static Retrofit retrofit;
 
     public static Retrofit setup() {
+
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
         OkHttpClient client = new OkHttpClient.Builder()

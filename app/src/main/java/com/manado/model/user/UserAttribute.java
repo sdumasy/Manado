@@ -1,13 +1,11 @@
-package com.manado.model;
-
-import java.util.ArrayList;
+package com.manado.model.user;
 
 /**
- * Created by macbookpro on 13-07-16.
+ * Created by macbookpro on 17-07-16.
  */
-public class User {
-    String name;
+public class UserAttribute {
     String email;
+    String name;
 
     public String getEmail() {
         return email;
@@ -24,9 +22,4 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
-
-//    String realName;
-//    ArrayList<House> houses;
-//    ArrayList<Transaction> transactions;
 }
