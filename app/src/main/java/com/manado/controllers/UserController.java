@@ -1,10 +1,11 @@
 package com.manado.controllers;
 
-import android.util.Log;
-
 import com.manado.http.ManadoApiClient;
-import com.manado.http.UserDataService;
-import com.manado.model.user.UserData;
+import com.manado.http.UserService;
+import com.manado.model.User;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -14,15 +15,12 @@ import retrofit2.Callback;
  */
 public class UserController {
 
-    public static void getUserData(Callback<UserData> callback) {
+    public static void getUserData(Callback<ArrayList<User>> callback) {
 
-        UserDataService request = ManadoApiClient.retrofit.create(UserDataService.class);
-        Call<UserData> call = request.getUserData();
+        UserService request = ManadoApiClient.retrofit.create(UserService.class);
+        Call<ArrayList<User>> call = request.getUserData();
         call.enqueue(callback);
     }
 
-    public static void hey() {
-        Log.v("dddddddddaaaaa", "gggggg");
-    }
 
 }

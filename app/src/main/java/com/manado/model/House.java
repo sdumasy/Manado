@@ -1,7 +1,5 @@
 package com.manado.model;
 
-import com.manado.model.user.User;
-
 import java.util.ArrayList;
 
 /**
