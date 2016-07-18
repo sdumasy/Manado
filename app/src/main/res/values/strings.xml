@@ -4,5 +4,6 @@
     <string name="passWordEditBox">Password</string>
     <string name="loginBox">Log In</string>
     <string name="registerBox">Register</string>
+    <string name="failLoginSnackbar">Invalid Login Credentials</string>
     <string name="facebook_app_id">487672131431032</string>
 </resources>

@@ -1,14 +1,18 @@
 package com.manado;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.manado.controllers.UserController;
 import com.manado.http.ManadoApiClient;
+import com.manado.model.Login;
 import com.manado.model.User;
 
 import java.util.ArrayList;
@@ -20,6 +24,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     Button registerButton;
     Button loginButton;
+    EditText userTextField;
+    EditText passTextField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,28 +34,13 @@ public class MainActivity extends AppCompatActivity {
         ManadoApiClient.setup();
         initViews();
         setOnClickListeners();
-
-
-        UserController.getUserData(new Callback<ArrayList<User>>() {
-            @Override
-            public void onResponse(Call<ArrayList<User>> call, Response<ArrayList<User>> response) {
-                if (response.isSuccessful()) {
-                    String mail = response.body().get(0).getUsername();
-                    Log.v("dddddddd", mail);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<User>> call, Throwable t) {
-                Log.d("Error", t.getMessage());
-                Log.v("aaaaaa", "qqq");
-            }
-        });
     }
 
     public void initViews() {
         registerButton = (Button)findViewById(R.id.registerButton);
         loginButton = (Button)findViewById(R.id.loginButton);
+        userTextField = (EditText)findViewById(R.id.editUserNameBox);
+        passTextField = (EditText)findViewById(R.id.editPasswordBox);
     }
 
     public void setOnClickListeners() {
@@ -65,10 +56,34 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(intent);
+                validateLogin(userTextField.getText().toString(), passTextField.getText().toString());
+
             }
         });
+    }
 
+    public void validateLogin(String us, String pass) {
+        UserController.getUserLogin(us, pass, new Callback<Login>() {
+            @Override
+            public void onResponse(Call<Login> call, Response<Login> response) {
+                if (response.code() == 200) {
+                    Log.v("qqqqqqq", "wwwwwwwww");
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                } else {
+                    Snackbar snack = Snackbar.make(MainActivity.this.findViewById(R.id.mainContent), R.string.failLoginSnackbar, Snackbar.LENGTH_LONG);
+                    View sbView = snack.getView();
+                    sbView.setBackgroundColor(Color.RED);
+                    snack.show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Login> call, Throwable t) {
+                Log.v("qqqqqqqq", "tttttttt");
+                Snackbar.make(getParent().findViewById(R.id.mainContent), R.string.failLoginSnackbar, Snackbar.LENGTH_LONG)
+                        .show();
+            }
+        });
     }
 }

@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:id="@+id/mainContent"
     tools:context="com.manado.MainActivity">
 
     <TextView
@@ -15,37 +16,37 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/app_name"
         android:id="@+id/textView"
-        android:layout_above="@+id/editUserNameBox"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="43dp" />
+        android:layout_marginTop="45dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/userNameEditBox"
         android:id="@+id/editUserNameBox"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/passWordEditBox"
         android:inputType="textPassword"
         android:id="@+id/editPasswordBox"
         android:layout_below="@+id/editUserNameBox"
-        android:layout_alignRight="@+id/editUserNameBox"
-        android:layout_alignEnd="@+id/editUserNameBox"
-        android:layout_marginTop="28dp" />
+        android:layout_alignLeft="@+id/editUserNameBox"
+        android:layout_alignStart="@+id/editUserNameBox" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/loginBox"
         android:id="@+id/loginButton"
-        android:layout_below="@+id/editPasswordBox"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp" />
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/registerButton"
+        android:layout_alignStart="@+id/registerButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -53,7 +54,6 @@
         android:text="@string/registerBox"
         android:id="@+id/registerButton"
         android:layout_below="@+id/loginButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
