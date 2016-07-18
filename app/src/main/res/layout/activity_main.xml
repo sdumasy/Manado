@@ -7,14 +7,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/house"
     android:id="@+id/mainContent"
     tools:context="com.manado.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="40sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/app_name"
+        android:textColor="@color/loginTitleColor"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -24,6 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/userNameEditBox"
+        android:paddingTop="@dimen/login_screen_edit_text_top_padding"
+        android:paddingLeft="@dimen/login_screen_edit_text_left_padding"
+        android:paddingBottom="@dimen/login_screen_edit_text_bot_padding"
+        android:background="@color/loginEditTextColor"
         android:id="@+id/editUserNameBox"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
@@ -32,7 +39,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/login_screen_edit_text_left_padding"
+
+        android:paddingTop="@dimen/login_screen_edit_text_top_padding"
+        android:paddingBottom="@dimen/login_screen_edit_text_bot_padding"
         android:hint="@string/passWordEditBox"
+        android:background="@color/loginEditTextColor"
         android:inputType="textPassword"
         android:id="@+id/editPasswordBox"
         android:layout_below="@+id/editUserNameBox"
@@ -44,15 +56,23 @@
         android:layout_height="wrap_content"
         android:text="@string/loginBox"
         android:id="@+id/loginButton"
-        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:background="@drawable/login_button"
+        android:width="@dimen/login_screen_button_width"
+        android:layout_below="@+id/editPasswordBox"
         android:layout_alignLeft="@+id/registerButton"
-        android:layout_alignStart="@+id/registerButton" />
+        android:layout_alignStart="@+id/registerButton"
+        android:layout_marginTop="26dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/registerBox"
         android:id="@+id/registerButton"
+        android:gravity="center"
+        android:background="@drawable/create_account"
+        android:width="@dimen/login_screen_button_width"
+        android:layout_marginTop="26dp"
         android:layout_below="@+id/loginButton"
         android:layout_centerHorizontal="true" />
 

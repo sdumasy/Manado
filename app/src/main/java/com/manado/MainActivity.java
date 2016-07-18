@@ -67,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Login> call, Response<Login> response) {
                 if (response.code() == 200) {
-                    Log.v("qqqqqqq", "wwwwwwwww");
-                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(MainActivity.this, HouseOverviewActivity.class);
                     startActivity(intent);
                 } else {
                     Snackbar snack = Snackbar.make(MainActivity.this.findViewById(R.id.mainContent), R.string.failLoginSnackbar, Snackbar.LENGTH_LONG);
@@ -80,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Login> call, Throwable t) {
-                Log.v("qqqqqqqq", "tttttttt");
                 Snackbar.make(getParent().findViewById(R.id.mainContent), R.string.failLoginSnackbar, Snackbar.LENGTH_LONG)
                         .show();
             }
