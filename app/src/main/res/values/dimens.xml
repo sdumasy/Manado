@@ -21,6 +21,10 @@
     <dimen name="register_screen_edit_text_bot_padding">10dp</dimen>
     <dimen name="register_screen_edit_text_left_padding">10dp</dimen>
 
+    <!-- house overview screen !-->
+    <dimen name="title_invitations">20sp</dimen>
+    <dimen name="title_create_house">20sp</dimen>
+
     <!-- Build house Screen !-->
     <dimen name="build_house_screen_title">40sp</dimen>
 

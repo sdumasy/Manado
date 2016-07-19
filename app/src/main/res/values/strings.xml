@@ -13,6 +13,8 @@
 
     <!-- House overview Screen !-->
     <string name="create_house">Build a house</string>
+    <string name="join_house_description">Invitations from houses will show up here</string>
+    <string name="create_house_description">If your house does not exist yet you can create it below</string>
 
     <!--Build House Screen !-->
     <string name="build_house_title">Build a house</string>
