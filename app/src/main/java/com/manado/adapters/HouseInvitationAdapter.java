@@ -13,14 +13,16 @@ import com.manado.onClickInterfaces.OnSearchUserClicked;
 
 import java.util.ArrayList;
 
-
-public class SearchUserAdapter extends RecyclerView.Adapter<SearchUserViewHolder>{
+/**
+ * Created by macbookpro on 19-07-16.
+ */
+public class HouseInvitationAdapter extends RecyclerView.Adapter<SearchUserViewHolder>{
     private ArrayList<User> userDataSet;
     private Context context;
     private OnSearchUserClicked mListener;
 
 
-    public SearchUserAdapter(ArrayList<User> myDataset, Context cont) {
+    public HouseInvitationAdapter(ArrayList<User> myDataset, Context cont) {
         userDataSet = myDataset;
         context = cont;
     }

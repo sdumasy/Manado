@@ -10,6 +10,21 @@ public class User {
     private String id;
     private String username;
     private String email;
+    private float saldo;
+
+    public User(String username, String email, float saldo) {
+        this.username = username;
+        this.email = email;
+        this.saldo = saldo;
+    }
+
+    public float getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
 
     public String getEmail() {
         return email;

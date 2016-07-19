@@ -25,8 +25,11 @@ public interface UserService {
 
     @FormUrlEncoded
     @POST("users")
-    Call<User> postUser(@Field("username") String username, @Field("password") String password, @Field("email") String email);
+    Call<User> postUser(@Field("username") String username, @Field("password") String password, @Field("email") String email, @Field("saldo") float saldo);
 
     @GET("users")
     Call<ArrayList<User>> getSpecificUser(@Query("username") String username);
+
+    @GET("users")
+    Call<User> getSpecificUserById(@Query("id") String id);
 }

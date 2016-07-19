@@ -1,6 +1,8 @@
 package com.manado;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
 import com.manado.controllers.UserController;
 import com.manado.http.ManadoApiClient;
 import com.manado.model.Login;
@@ -85,5 +88,13 @@ public class MainActivity extends AppCompatActivity {
                 snack.show();
             }
         });
+    }
+
+    public static void adjustSharedPreferences(String userId, MainActivity main) {
+        SharedPreferences sharedpreferences = main.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("userLoggedIn", userId);
+        editor.commit();
     }
 }

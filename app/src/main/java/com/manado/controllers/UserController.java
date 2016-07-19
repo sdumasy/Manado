@@ -30,9 +30,9 @@ public class UserController {
         call.enqueue(callback);
     }
 
-    public static void postUserLogin(String us, String pass, String email, Callback<User> callback) {
+    public static void postUserLogin(User us, String password, Callback<User> callback) {
         UserService request = ManadoApiClient.retrofit.create(UserService.class);
-        Call<User> call = request.postUser(us, pass, email);
+        Call<User> call = request.postUser(us.getUsername(), password, us.getEmail(), 2);
         call.enqueue(callback);
     }
 
@@ -40,6 +40,13 @@ public class UserController {
 
         UserService request = ManadoApiClient.retrofit.create(UserService.class);
         Call<ArrayList<User>> call = request.getSpecificUser(name);
+        call.enqueue(callback);
+    }
+
+    public static void getSpecificUserById(String userId, Callback<User> callback) {
+
+        UserService request = ManadoApiClient.retrofit.create(UserService.class);
+        Call<User> call = request.getSpecificUserById(userId);
         call.enqueue(callback);
     }
 

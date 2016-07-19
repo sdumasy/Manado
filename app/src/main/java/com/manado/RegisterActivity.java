@@ -38,11 +38,14 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void setRegisterButtonListener() {
+       // final User tempUser = new User(regEmailEditText.getText().toString(), regUserEditText.getText().toString(), 2);
+
         regButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                UserController.postUserLogin(regUserEditText.getText().toString(), regPassEditText.getText().toString(),
-                        regEmailEditText.getText().toString(), new Callback<User>() {
+                final User tempUser = new User(regUserEditText.getText().toString(), regEmailEditText.getText().toString(), 2);
+
+                UserController.postUserLogin(tempUser, regPassEditText.getText().toString(), new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response.code() == 200) {
