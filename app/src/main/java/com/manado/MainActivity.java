@@ -79,8 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Login> call, Throwable t) {
-                Snackbar.make(getParent().findViewById(R.id.mainContent), R.string.failLoginSnackbar, Snackbar.LENGTH_LONG)
-                        .show();
+                Snackbar snack = Snackbar.make(MainActivity.this.findViewById(R.id.mainContent), R.string.failLoginSnackbar, Snackbar.LENGTH_LONG);
+                View sbView = snack.getView();
+                sbView.setBackgroundColor(Color.RED);
+                snack.show();
             }
         });
     }

@@ -36,4 +36,11 @@ public class UserController {
         call.enqueue(callback);
     }
 
+    public static void getSpecificUser(String name, Callback<ArrayList<User>> callback) {
+
+        UserService request = ManadoApiClient.retrofit.create(UserService.class);
+        Call<ArrayList<User>> call = request.getSpecificUser(name);
+        call.enqueue(callback);
+    }
+
 }

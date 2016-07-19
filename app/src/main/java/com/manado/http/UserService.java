@@ -11,6 +11,8 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface UserService {
 
@@ -25,4 +27,6 @@ public interface UserService {
     @POST("users")
     Call<User> postUser(@Field("username") String username, @Field("password") String password, @Field("email") String email);
 
+    @GET("users")
+    Call<ArrayList<User>> getSpecificUser(@Query("username") String username);
 }

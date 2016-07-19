@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class ManadoApiClient {
     private static final String BASE_URL = "http://10.0.2.2:2403/";
+    //private static final String BASE_URL = "http://manado.herokuapp.com/";
     public static Retrofit retrofit;
 
     public static Retrofit setup() {

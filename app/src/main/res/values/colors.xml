@@ -3,13 +3,18 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="bgColor">#e2efd6</color>
 
     <!-- login screen color !-->
     <color name="loginTitleColor">#FFFFFF</color>
     <color name="loginEditTextColor">#96ffffff</color>
     <color name="createAcoountButtonColor">#faaa0a</color>
-
     <color name="loginButtonColor">#00000000 </color>
     <color name="loginButtonBorderColor">#fae650</color>
 
+    <!-- register screen colors !-->
+    <color name="registerEditTextBgColor">#ffffff</color>
+
+    <!-- GENERAL !-->
+    <color name="general_white_edit_text">#FFFFFF</color>
 </resources>

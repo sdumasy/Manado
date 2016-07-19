@@ -3,12 +3,30 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- GENERAL !-->
+    <dimen name="general_edit_text_top_padding">10dp</dimen>
+    <dimen name="general_edit_text_bot_padding">10dp</dimen>
+    <dimen name="general_edit_text_left_padding">10dp</dimen>
+
     <!-- Login Screen !-->
-    <dimen name="login_screen_title">40dp</dimen>
+    <dimen name="login_screen_title">40sp</dimen>
     <dimen name="login_screen_edit_text_top_padding">10dp</dimen>
     <dimen name="login_screen_edit_text_bot_padding">10dp</dimen>
     <dimen name="login_screen_edit_text_left_padding">10dp</dimen>
     <dimen name="login_screen_button_width">300dp</dimen>
 
+    <!-- Register Screen !-->
+    <dimen name="register_screen_title">40sp</dimen>
+    <dimen name="register_screen_edit_text_top_padding">10dp</dimen>
+    <dimen name="register_screen_edit_text_bot_padding">10dp</dimen>
+    <dimen name="register_screen_edit_text_left_padding">10dp</dimen>
+
+    <!-- Build house Screen !-->
+    <dimen name="build_house_screen_title">40sp</dimen>
+
+    <dimen name="search_user_card_top_padding">10dp</dimen>
+    <dimen name="search_user_card_bot_padding">10dp</dimen>
+    <dimen name="search_user_card_left_padding">10dp</dimen>
+    <dimen name="search_user_card_right_padding">10dp</dimen>
 
 </resources>

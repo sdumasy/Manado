@@ -8,4 +8,18 @@
     <string name="failLoginSnackbar">Invalid Login Credentials</string>
     <string name="registerBox">Create your account</string>
 
+    <!-- Register Screen !-->
+    <string name="register_page_title">Sign up!</string>
+
+    <!-- House overview Screen !-->
+    <string name="create_house">Build a house</string>
+
+    <!--Build House Screen !-->
+    <string name="build_house_title">Build a house</string>
+    <string name="add_users_house">Add roommates!</string>
+    <string name="houseName">house name</string>
+    <string name="houseAdress">house adress</string>
+
+
+
 </resources>
