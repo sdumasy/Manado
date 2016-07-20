@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.manado.adapters.SearchUserAdapter;
 import com.manado.controllers.HouseController;
 import com.manado.controllers.UserController;
+import com.manado.http.ManadoApiClient;
 import com.manado.model.House;
 import com.manado.model.Login;
 import com.manado.model.User;
@@ -40,6 +41,7 @@ public class BuildHouseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_build_house);
+        ManadoApiClient.setup();
         initViews();
         addOnClickListeners();
     }
@@ -56,12 +58,15 @@ public class BuildHouseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addHouse(houseName.getText().toString(), houseAddress.getText().toString());
+                Intent intent = new Intent(BuildHouseActivity.this, AddUsersToHouseActivity.class);
+                startActivity(intent);
             }
         });
 
         homePageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                addHouse(houseName.getText().toString(), houseAddress.getText().toString());
                 Intent intent = new Intent(BuildHouseActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
@@ -73,8 +78,8 @@ public class BuildHouseActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<House> call, Response<House> response) {
                 if (response.code() == 200) {
-                    Intent intent = new Intent(BuildHouseActivity.this, AddUsersToHouseActivity.class);
-                    startActivity(intent);
+                    House house = response.body();
+
                 } else {
                     Snackbar snack = Snackbar.make(BuildHouseActivity.this.findViewById(R.id.mainContent), R.string.failLoginSnackbar, Snackbar.LENGTH_LONG);
                     View sbView = snack.getView();

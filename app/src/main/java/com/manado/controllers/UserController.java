@@ -2,6 +2,7 @@ package com.manado.controllers;
 
 import com.manado.http.ManadoApiClient;
 import com.manado.http.UserService;
+import com.manado.model.Invitation;
 import com.manado.model.Login;
 import com.manado.model.User;
 

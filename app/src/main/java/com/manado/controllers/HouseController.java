@@ -19,4 +19,11 @@ public class HouseController {
         Call<House> call = request.postHouse(houseName, houseAddres);
         call.enqueue(callback);
     }
+
+    public static void getHouseById(String userId, Callback<House> callback) {
+
+        HouseService request = ManadoApiClient.retrofit.create(HouseService.class);
+        Call<House> call = request.getHouseById(userId);
+        call.enqueue(callback);
+    }
 }

@@ -8,27 +8,26 @@ import android.view.ViewGroup;
 
 import com.manado.R;
 import com.manado.listViewHolders.SearchUserViewHolder;
+import com.manado.model.Invitation;
 import com.manado.model.User;
+import com.manado.onClickInterfaces.OnInvitationClicked;
 import com.manado.onClickInterfaces.OnSearchUserClicked;
 
 import java.util.ArrayList;
 
-/**
- * Created by macbookpro on 19-07-16.
- */
 public class HouseInvitationAdapter extends RecyclerView.Adapter<SearchUserViewHolder>{
-    private ArrayList<User> userDataSet;
+    private ArrayList<Invitation> invitationDataSet;
     private Context context;
-    private OnSearchUserClicked mListener;
+    private OnInvitationClicked mListener;
 
 
-    public HouseInvitationAdapter(ArrayList<User> myDataset, Context cont) {
-        userDataSet = myDataset;
+    public HouseInvitationAdapter(ArrayList<Invitation> myDataset, Context cont) {
+        invitationDataSet = myDataset;
         context = cont;
     }
 
-    public void updateDataSet(ArrayList<User> users) {
-        userDataSet = users;
+    public void updateDataSet(ArrayList<Invitation> invitations) {
+        invitationDataSet = invitations;
         this.notifyDataSetChanged();
     }
 
@@ -41,14 +40,14 @@ public class HouseInvitationAdapter extends RecyclerView.Adapter<SearchUserViewH
 
     @Override
     public void onBindViewHolder(SearchUserViewHolder holder, final int position) {
-        holder.getProjectTitleView().setText(userDataSet.get(position).getUsername());
+        holder.getProjectTitleView().setText(invitationDataSet.get(position).getHouseName());
         holder.getProjectImageView().setImageResource(R.drawable.placeholder);
         if (context instanceof OnSearchUserClicked) {
-            mListener = (OnSearchUserClicked) context;
+            mListener = (OnInvitationClicked) context;
             holder.getParentView().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mListener.clickSearchUser(userDataSet.get(position));
+                    mListener.clickInvitation(invitationDataSet.get(position));
                 }
             });
         }
@@ -56,6 +55,6 @@ public class HouseInvitationAdapter extends RecyclerView.Adapter<SearchUserViewH
 
     @Override
     public int getItemCount() {
-        return userDataSet.size();
+        return invitationDataSet.size();
     }
 }

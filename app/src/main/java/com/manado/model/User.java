@@ -11,11 +11,20 @@ public class User {
     private String username;
     private String email;
     private float saldo;
+    private String houseId;
 
     public User(String username, String email, float saldo) {
         this.username = username;
         this.email = email;
         this.saldo = saldo;
+    }
+
+    public String getHouseId() {
+        return houseId;
+    }
+
+    public void setHouseId(String houseId) {
+        this.houseId = houseId;
     }
 
     public float getSaldo() {

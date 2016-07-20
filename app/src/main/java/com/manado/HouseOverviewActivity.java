@@ -38,8 +38,8 @@ public class HouseOverviewActivity extends AppCompatActivity {
         interViewRecycler.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         interViewRecycler.setLayoutManager(mLayoutManager);
-        houseAdapter = new HouseInvitationAdapter(new ArrayList<User>(), HouseOverviewActivity.this);
-        interViewRecycler.setAdapter(houseAdapter);
+        //houseAdapter = new HouseInvitationAdapter(new ArrayList<User>(), HouseOverviewActivity.this);
+        //interViewRecycler.setAdapter(houseAdapter);
     }
 
     public void setOnClickListeners() {

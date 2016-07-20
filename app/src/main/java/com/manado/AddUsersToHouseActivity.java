@@ -1,5 +1,7 @@
 package com.manado;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -13,12 +15,18 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.manado.adapters.SearchUserAdapter;
+import com.manado.controllers.HouseController;
+import com.manado.controllers.InvitationController;
 import com.manado.controllers.UserController;
+import com.manado.model.House;
+import com.manado.model.Invitation;
 import com.manado.model.User;
 import com.manado.onClickInterfaces.OnSearchUserClicked;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -98,6 +106,64 @@ public class AddUsersToHouseActivity extends AppCompatActivity implements OnSear
 
     @Override
     public void clickSearchUser(User user) {
+        Log.v("dddd", "yyyyyyy");
+        addInvitationToUser(user);
+    }
+
+    public void addInvitationToUser(User user) {
+
+        SharedPreferences prefs = this.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String userJson = prefs.getString("userLoggedIn", null);
+
+        User loggedInUs = gson.fromJson(userJson, User.class);
+        prepareInvitation(user,loggedInUs);
+
+
+    }
+
+    public void prepareInvitation(final User recUser, final User sendUser) {
+
+        HouseController.getHouseById(sendUser.getHouseId(), new Callback<House>() {
+            @Override
+            public void onResponse(Call<House> call, Response<House> response) {
+                if (response.code() == 200) {
+                    Calendar c = Calendar.getInstance();
+                    int day = c.get(Calendar.DAY_OF_MONTH);
+                    int month = c.get(Calendar.MONTH);
+                    int year = c.get(Calendar.YEAR);
+                    Invitation tempInvitation = new Invitation(response.body().getHouseName(), recUser.getUsername(), sendUser.getUsername(), day + "-" + month + "-" + year);
+                    sendInvitation(tempInvitation);
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<House> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    public void sendInvitation(Invitation invitation) {
+        Log.v("ddd", "ddd");
+        InvitationController.postNewInvitation(invitation, new Callback<ArrayList<Invitation>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Invitation>> call, Response<ArrayList<Invitation>> response) {
+                if (response.code() == 200) {
+
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Invitation>> call, Throwable t) {
+
+            }
+        });
 
     }
 

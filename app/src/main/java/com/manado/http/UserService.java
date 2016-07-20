@@ -1,5 +1,6 @@
 package com.manado.http;
 
+import com.manado.model.Invitation;
 import com.manado.model.Login;
 import com.manado.model.User;
 
@@ -32,4 +33,5 @@ public interface UserService {
 
     @GET("users")
     Call<User> getSpecificUserById(@Query("id") String id);
+
 }

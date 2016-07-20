@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Login> call, Response<Login> response) {
                 if (response.code() == 200) {
+                    lookForUsers(response.body().getUid());
                     Intent intent = new Intent(MainActivity.this, HouseOverviewActivity.class);
                     startActivity(intent);
                 } else {
@@ -90,11 +91,40 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public static void adjustSharedPreferences(String userId, MainActivity main) {
+    public void lookForUsers(String userId) {
+        UserController.getSpecificUserById(userId, new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.code() == 200) {
+                    User user = response.body();
+                    adjustSharedPreferences(user, MainActivity.this);
+
+                } else {
+                    Snackbar snack = Snackbar.make(MainActivity.this.findViewById(R.id.mainContent), R.string.failLoginSnackbar, Snackbar.LENGTH_LONG);
+                    View sbView = snack.getView();
+                    sbView.setBackgroundColor(Color.RED);
+                    snack.show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Snackbar snack = Snackbar.make(MainActivity.this.findViewById(R.id.mainContent), R.string.failLoginSnackbar, Snackbar.LENGTH_LONG);
+                View sbView = snack.getView();
+                sbView.setBackgroundColor(Color.RED);
+                snack.show();
+            }
+        });
+    }
+
+    public static void adjustSharedPreferences(User user, MainActivity main) {
         SharedPreferences sharedpreferences = main.getSharedPreferences("prefs", Context.MODE_PRIVATE);
 
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
         SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.putString("userLoggedIn", userId);
+        editor.putString("userLoggedIn", json);
         editor.commit();
+
     }
 }

@@ -1,8 +1,12 @@
 package com.manado.controllers;
 
 import com.manado.http.HouseService;
+import com.manado.http.InvitationService;
 import com.manado.http.ManadoApiClient;
 import com.manado.model.House;
+import com.manado.model.Invitation;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,16 +16,11 @@ import retrofit2.Callback;
  */
 public class InvitationController {
 
-    public static void postNewHouse(String houseName, String houseAddres, Callback<House> callback) {
-        HouseService request = ManadoApiClient.retrofit.create(HouseService.class);
-        Call<House> call = request.postHouse(houseName, houseAddres);
+    public static void postNewInvitation(Invitation invitation, Callback<ArrayList<Invitation>> callback) {
+        InvitationService request = ManadoApiClient.retrofit.create(InvitationService.class);
+        Call<ArrayList<Invitation>> call = request.postInvitation(invitation.getRecUserName(), invitation.getSendUserName(),
+                invitation.getHouseName(), invitation.getDate());
         call.enqueue(callback);
     }
 
-    public static void getHouseById(String userId, Callback<House> callback) {
-
-        HouseService request = ManadoApiClient.retrofit.create(HouseService.class);
-        Call<House> call = request.getHouseById(userId);
-        call.enqueue(callback);
-    }
 }
