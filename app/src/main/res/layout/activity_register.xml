@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="56dp"
         android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingRight="24dp"
+        android:background="@color/bgColor">
 
         <!--ImageView android:src="@drawable/logo"
             android:layout_width="wrap_content"
@@ -27,8 +28,7 @@
             android:text="@string/register_screen_title"
             android:textAlignment="center"
             android:textSize="@dimen/register_screen_title_text_size"
-            android:fontFamily="serif-monospace"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimary"/>
 
         <!--  Name Label -->
         <android.support.design.widget.TextInputLayout
