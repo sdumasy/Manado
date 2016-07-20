@@ -25,6 +25,10 @@ public interface UserService {
     Call<Login> getUserLogin(@Field("username") String username, @Field("password") String password);
 
     @FormUrlEncoded
+    @POST("users/{id}")
+    Call<User> postHouseToUser(@Path("id") String id, @Field("houseId") String houseId);
+
+    @FormUrlEncoded
     @POST("users")
     Call<User> postUser(@Field("username") String username, @Field("password") String password, @Field("email") String email,  @Field("saldo") float saldo, @Field("birthDate") String birthDate);
 

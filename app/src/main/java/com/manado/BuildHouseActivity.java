@@ -1,6 +1,8 @@
 package com.manado;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.manado.adapters.SearchUserAdapter;
 import com.manado.controllers.HouseController;
 import com.manado.controllers.UserController;
@@ -79,6 +82,21 @@ public class BuildHouseActivity extends AppCompatActivity {
             public void onResponse(Call<House> call, Response<House> response) {
                 if (response.code() == 200) {
                     House house = response.body();
+                    SharedPreferences prefs = BuildHouseActivity.this.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+                    Gson gson = new Gson();
+                    String userJson = prefs.getString("userLoggedIn", null);
+                    User loggedInUs = gson.fromJson(userJson, User.class);
+                    UserController.postHouseToUser(loggedInUs.getId(), house.getHouseId(), new Callback<User>() {
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
+
+                        }
+                    });
 
                 } else {
                     Snackbar snack = Snackbar.make(BuildHouseActivity.this.findViewById(R.id.mainContent), R.string.failLoginSnackbar, Snackbar.LENGTH_LONG);

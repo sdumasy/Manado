@@ -117,12 +117,14 @@ public class AddUsersToHouseActivity extends AppCompatActivity implements OnSear
         String userJson = prefs.getString("userLoggedIn", null);
 
         User loggedInUs = gson.fromJson(userJson, User.class);
+
         prepareInvitation(user,loggedInUs);
 
 
     }
 
     public void prepareInvitation(final User recUser, final User sendUser) {
+        Log.v(sendUser.getUsername(), sendUser.getHouseId());
 
         HouseController.getHouseById(sendUser.getHouseId(), new Callback<House>() {
             @Override

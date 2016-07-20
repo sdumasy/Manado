@@ -22,4 +22,6 @@ public interface HouseService {
     Call<House> postHouse(@Field("houseName") String houseName, @Field("houseAddress") String houseAddress);
 
     @GET("houses")
-    Call<House> getHouseById(@Query("id") String id);}
+    Call<House> getHouseById(@Query("id") String id);
+
+}
