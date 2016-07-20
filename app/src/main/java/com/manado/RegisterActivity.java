@@ -75,14 +75,10 @@ public class RegisterActivity extends AppCompatActivity {
         regButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-<<<<<<< HEAD
-                final User tempUser = new User(regUserEditText.getText().toString(), regEmailEditText.getText().toString(), 2);
+                final User tempUser = new User(regUserEditText.getText().toString(),
+                        regEmailEditText.getText().toString(), regBirthDate.getText().toString(), 0);
 
                 UserController.postUserLogin(tempUser, regPassEditText.getText().toString(), new Callback<User>() {
-=======
-                UserController.postUserLogin(regUserEditText.getText().toString(), regPassEditText.getText().toString(),
-                        regEmailEditText.getText().toString(),regBirthDate.getText().toString(), new Callback<User>() {
->>>>>>> embellishGui
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (response.code() == 200) {

@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import com.manado.controllers.UserController;
 import com.manado.http.ManadoApiClient;
 import com.manado.model.Login;
+import com.manado.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
