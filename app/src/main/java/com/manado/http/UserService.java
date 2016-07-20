@@ -26,11 +26,7 @@ public interface UserService {
 
     @FormUrlEncoded
     @POST("users")
-<<<<<<< HEAD
-    Call<User> postUser(@Field("username") String username, @Field("password") String password, @Field("email") String email, @Field("saldo") float saldo);
-=======
-    Call<User> postUser(@Field("username") String username, @Field("password") String password, @Field("email") String email, @Field("birthDate") String birthDate);
->>>>>>> embellishGui
+    Call<User> postUser(@Field("username") String username, @Field("password") String password, @Field("email") String email,  @Field("saldo") float saldo, @Field("birthDate") String birthDate);
 
     @GET("users")
     Call<ArrayList<User>> getSpecificUser(@Query("username") String username);

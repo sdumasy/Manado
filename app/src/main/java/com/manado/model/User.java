@@ -11,12 +11,15 @@ public class User {
     private String username;
     private String email;
     private float saldo;
+    private String date;
+
     private String houseId;
 
-    public User(String username, String email, float saldo) {
+    public User(String username, String email, String date, float saldo) {
         this.username = username;
         this.email = email;
         this.saldo = saldo;
+        this.date = date;
     }
 
     public String getHouseId() {
@@ -57,6 +60,14 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
 }
