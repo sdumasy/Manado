@@ -30,9 +30,9 @@ public class UserController {
         call.enqueue(callback);
     }
 
-    public static void postUserLogin(String us, String pass, String email, Callback<User> callback) {
+    public static void postUserLogin(String us, String pass, String email, String birthDate, Callback<User> callback) {
         UserService request = ManadoApiClient.retrofit.create(UserService.class);
-        Call<User> call = request.postUser(us, pass, email);
+        Call<User> call = request.postUser(us, pass, email, birthDate);
         call.enqueue(callback);
     }
 

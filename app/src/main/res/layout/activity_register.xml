@@ -1,71 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:id="@+id/registerMainContent"
+    android:fitsSystemWindows="true">
 
-    android:background="@color/bgColor"
-    tools:context="com.manado.RegisterActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/register_page_title"
-        android:textSize="@dimen/register_screen_title"
-        android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/regUserEditText"
-        android:hint="username"
-        android:paddingLeft="@dimen/register_screen_edit_text_left_padding"
-        android:paddingTop="@dimen/register_screen_edit_text_top_padding"
-        android:paddingBottom="@dimen/register_screen_edit_text_bot_padding"
-        android:background="@color/registerEditTextBgColor"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="86dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
 
-    <EditText
-        android:paddingLeft="@dimen/register_screen_edit_text_left_padding"
-        android:paddingTop="@dimen/register_screen_edit_text_top_padding"
-        android:paddingBottom="@dimen/register_screen_edit_text_bot_padding"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/registerEditTextBgColor"
-        android:id="@+id/regPassEditText"
-        android:hint="password"
-        android:layout_below="@+id/regEmailEditText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <!--ImageView android:src="@drawable/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" /-->
 
-    <EditText
-        android:paddingLeft="@dimen/register_screen_edit_text_left_padding"
-        android:paddingTop="@dimen/register_screen_edit_text_top_padding"
-        android:paddingBottom="@dimen/register_screen_edit_text_bot_padding"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/regEmailEditText"
-        android:hint="email"
-        android:background="@color/registerEditTextBgColor"
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_screen_title"
+            android:textAlignment="center"
+            android:textSize="@dimen/register_screen_title_text_size"
+            android:fontFamily="serif-monospace"
+            android:textColor="@color/colorPrimaryDark"/>
 
-        android:layout_below="@+id/regUserEditText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <!--  Name Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="110dp"
+            android:layout_marginBottom="@dimen/register_screen_text_input_layout_top_margin">
+            <EditText android:id="@+id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:hint="@string/register_screen_hint_name" />
+        </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/registerBox"
-        android:id="@+id/regButton"
-        android:layout_below="@+id/regEmailEditText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp" />
+        <!-- Email Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/register_screen_text_input_layout_top_margin"
+            android:layout_marginBottom="@dimen/register_screen_text_input_layout_bot_margin">
+            <EditText android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="@string/register_screen_hint_email" />
+        </android.support.design.widget.TextInputLayout>
 
+        <!-- Password Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/register_screen_text_input_layout_top_margin"
+            android:layout_marginBottom="@dimen/register_screen_text_input_layout_bot_margin">
+            <EditText android:id="@+id/input_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/register_screen_hint_pw"/>
+        </android.support.design.widget.TextInputLayout>
 
-</RelativeLayout>
+        <!-- date of birth display and select -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout2"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/register_screen_text_input_layout_top_margin"
+            android:layout_marginBottom="@dimen/register_screen_text_input_layout_bot_margin">
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <TextView
+                    android:text="@string/register_screen_date_selected_example"
+                    android:height="@dimen/register_screen_birth_date_text_height"
+                    android:textSize="@dimen/register_screen_birth_date_text_size"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/input_dateofbirth"
+                    android:layout_gravity="center_horizontal">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <Button
+                    android:text="@string/register_screen_btn_pick_date_text"
+                    android:height="@dimen/register_screen_btn_pick_date_height"
+                    android:textSize="@dimen/register_screen_btn_pick_date_text_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_pickdate"
+                    android:onClick="showDatePickerDialog"
+                    android:layout_gravity="center_horizontal">
+                </Button>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Signup Button -->
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_signup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/register_screen_btn_create_account_top_margin"
+            android:layout_marginBottom="@dimen/register_screen_btn_create_account_bot_margin"
+            android:padding="@dimen/register_screen_btn_create_account_padding"
+            android:text="@string/register_screen_btn_create_account_text"/>
+
+        <TextView android:id="@+id/already_member"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/register_screen_btn_already_member_bot_margin"
+            android:text="@string/register_screen_btn_already_member_text"
+            android:gravity="center"
+            android:textSize="@dimen/register_screen_btn_already_member_text_size"/>
+
+    </LinearLayout>
+</ScrollView>

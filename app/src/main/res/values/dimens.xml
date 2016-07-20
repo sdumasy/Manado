@@ -16,10 +16,18 @@
     <dimen name="login_screen_button_width">300dp</dimen>
 
     <!-- Register Screen !-->
-    <dimen name="register_screen_title">40sp</dimen>
-    <dimen name="register_screen_edit_text_top_padding">10dp</dimen>
-    <dimen name="register_screen_edit_text_bot_padding">10dp</dimen>
-    <dimen name="register_screen_edit_text_left_padding">10dp</dimen>
+    <dimen name="register_screen_title_text_size">40sp</dimen>
+    <dimen name="register_screen_text_input_layout_top_margin">8dp</dimen>
+    <dimen name="register_screen_text_input_layout_bot_margin">8dp</dimen>
+    <dimen name="register_screen_birth_date_text_height">24dp</dimen>
+    <dimen name="register_screen_birth_date_text_size">20sp</dimen>
+    <dimen name="register_screen_btn_pick_date_height">14dp</dimen>
+    <dimen name="register_screen_btn_pick_date_text_size">15sp</dimen>
+    <dimen name="register_screen_btn_create_account_top_margin">24dp</dimen>
+    <dimen name="register_screen_btn_create_account_bot_margin">24dp</dimen>
+    <dimen name="register_screen_btn_create_account_padding">12dp</dimen>
+    <dimen name="register_screen_btn_already_member_bot_margin">24dp</dimen>
+    <dimen name="register_screen_btn_already_member_text_size">16dip</dimen>
 
     <!-- Build house Screen !-->
     <dimen name="build_house_screen_title">40sp</dimen>

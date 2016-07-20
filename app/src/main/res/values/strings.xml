@@ -9,7 +9,14 @@
     <string name="registerBox">Create your account</string>
 
     <!-- Register Screen !-->
-    <string name="register_page_title">Sign up!</string>
+    <string name="register_screen_title">Sign up!</string>
+    <string name="register_screen_date_selected_example">dd/mm/yyyy</string>
+    <string name="register_screen_hint_name">Name</string>
+    <string name="register_screen_hint_email">Email</string>
+    <string name="register_screen_hint_pw">Password</string>
+    <string name="register_screen_btn_pick_date_text">Pick Date</string>
+    <string name="register_screen_btn_create_account_text">Create Account</string>
+    <string name="register_screen_btn_already_member_text">Already a member? Login</string>
 
     <!-- House overview Screen !-->
     <string name="create_house">Build a house</string>
